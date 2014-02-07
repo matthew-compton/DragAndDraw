@@ -18,7 +18,8 @@ public class BoxDrawingView extends View {
 	private Box mCurrentBox;
 	private ArrayList<Box> mBoxes = new ArrayList<Box>();
 
-	private Paint mBoxPaint, mBackgroundPaint;
+	private Paint mBoxPaint;
+	private Paint mBackgroundPaint;
 
 	// Used when creating the view in code
 	public BoxDrawingView(Context context) {
@@ -70,6 +71,7 @@ public class BoxDrawingView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
+		Log.i(TAG, "onDraw");
 		// Fill the background
 		canvas.drawPaint(mBackgroundPaint);
 		
@@ -79,6 +81,7 @@ public class BoxDrawingView extends View {
 			float top = Math.min(box.getOrigin().y, box.getCurrent().y);
 			float bottom = Math.min(box.getOrigin().y, box.getCurrent().y);
 			
+			Log.i(TAG, "drawRect");
 			canvas.drawRect(left, top, right, bottom, mBoxPaint);
 		}
 	}
